@@ -8,32 +8,40 @@ import Example1 from './components/hooks/Example1';
 import Explample2 from './components/hooks/Example2';
 import MyContextComponent from './components/hooks/Example3'
 import Example4 from './components/hooks/Example4';
+import GreetingStyled from './components/pure/greetingStyled';
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <Greeting name="Julio"></Greeting> */}
-        {/* <GreetingF name="Marcelo"></GreetingF> */}
+      {/* <header className="App-header"> */}
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      {/* <Greeting name="Julio"></Greeting> */}
+      {/* <GreetingF name="Marcelo"></GreetingF> */}
 
-        {/* <ComponentA ></ComponentA> */}
+      {/* <ComponentA ></ComponentA> */}
 
-        {/* Componente de listado de tareas */}
-        {/* <TaskListComponent></TaskListComponent> */}
+      {/* Componente de listado de tareas */}
+      {/* <TaskListComponent items={list} /> */}
 
-        {/* <Example1></Example1> */}
-        {/* <Explample2></Explample2> */}
-        {/* <MyContextComponent></MyContextComponent> */}
-        <Example4 name="Cristian">
-          {/* Todo lo que esté dentro de Example4 estará 
+      {/* <Example1></Example1> */}
+      {/* <Explample2></Explample2> */}
+      {/* <MyContextComponent></MyContextComponent> */}
+      {/* Todo lo que esté dentro de Example4 estará 
           marcado como props.children */}
+      {/* <Example4 name="Cristian">
           <h3>
             Contenido del props.children
           </h3>
 
-        </Example4>
-      </header>
+        </Example4> */}
+      {/* <GreetingStyled name='Cristian' /> */}
+      {/* </header> */}
+      <TaskListComponent>
+      </TaskListComponent>
+
     </div>
   );
 }
