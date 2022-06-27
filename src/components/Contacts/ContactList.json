@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Carlos",
+        "lastname": "Fernández",
+        "connected": false
+    },
+    {
+        "name": "María",
+        "lastname": "García",
+        "connected": false
+    },
+    {
+        "name": "Benito",
+        "lastname": "Toro",
+        "connected": true
+    },
+    {
+        "name": "Laura",
+        "lastname": "Hernique",
+        "connected": false
+    }
+]

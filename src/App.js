@@ -9,6 +9,8 @@ import Explample2 from './components/hooks/Example2';
 import MyContextComponent from './components/hooks/Example3'
 import Example4 from './components/hooks/Example4';
 import GreetingStyled from './components/pure/greetingStyled';
+import Father from './components/container/father';
+import ListContacts from './components/Contacts/listContacts';
 
 function App() {
 
@@ -39,8 +41,15 @@ function App() {
         </Example4> */}
       {/* <GreetingStyled name='Cristian' /> */}
       {/* </header> */}
-      <TaskListComponent>
-      </TaskListComponent>
+      {/* <TaskListComponent>
+      </TaskListComponent> */}
+
+
+      <ListContacts>
+
+      </ListContacts>
+
+      {/* <Father /> */}
 
     </div>
   );

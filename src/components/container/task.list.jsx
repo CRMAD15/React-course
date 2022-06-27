@@ -17,7 +17,7 @@ const TaskListComponent = ({ items }) => {
     const defaultTask3 = new Task('Example3', 'Default description3', true, LEVELS.BLOCKING)
 
 
-    const [task, setTask] = useState([defaultTask1, defaultTask2, defaultTask3]);
+    const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
     const [loading, setLoading] = useState(false);
 
 
@@ -25,15 +25,46 @@ const TaskListComponent = ({ items }) => {
         console.log('task state has been modifided')
         setLoading(true)
         return () => {
-            console.log('taskList it is goinf to un mount')
+            console.log('taskList it is going to unmount')
 
         };
-    }, [task]);
+    }, [tasks]);
 
     // const chageState = (id) => {
     //     console.log("ToDo: Cambiar el estado de clas cosas")
     // }
 
+
+    const completeTask = (task) => {
+        console.log(`complete this task:`, task)
+        const index = tasks.indexOf(task)
+        const tempTask = [...tasks]
+        //DUcplicate the state tasks para crear un nuevo array que es el que se modifica ya que los estados son inmutables.
+        tempTask[index].completed = !tempTask[index].completed
+
+        //Lo que sucede aqui es que está poniendo lo opuesto a lo que haya en Completed del elemento que se clike
+
+
+        //We update the state of the component with the new list of task and it will update the
+        //Iterantion of the tasks in orfer tho show the task update
+
+        setTasks(tempTask)
+    }
+    const deleteTask = (task) => {
+        console.log(`Delete this task:`, task)
+        const index = tasks.indexOf(task)
+        const tempTask = [...tasks]
+        tempTask.splice(index, 1)
+        setTasks(tempTask)
+    }
+
+    const addTask = (task) => {
+        console.log(`Add this task:`, task)
+        const index = tasks.indexOf(task)
+        const tempTask = [...tasks]
+        tempTask.push(task)
+        setTasks(tempTask)
+    }
 
 
     return (
@@ -56,11 +87,14 @@ const TaskListComponent = ({ items }) => {
                             </thead>
                             <tbody>
                                 {
-                                    task.map((task, index) => {
+                                    tasks.map((task, index) => {
                                         return (
                                             <TaskComponent
                                                 key={index}
-                                                task={task}>
+                                                task={task}
+                                                complete={completeTask}
+                                                remove={deleteTask}
+                                            >
                                             </TaskComponent>
                                         )
                                     })
@@ -70,14 +104,17 @@ const TaskListComponent = ({ items }) => {
                         </table>
 
                     </div>
-                    <TaskForm></TaskForm>
+
                 </div>
             </div>
+            <TaskForm
+                add={addTask}
+            >
 
+            </TaskForm>
         </div >
     );
 };
-
 
 
 
