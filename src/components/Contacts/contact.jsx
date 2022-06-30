@@ -10,16 +10,17 @@ const Contact = ({ contact, verifyConnected, remove }) => {
             : <i className="bi bi-circle" style={{ color: "red" }} onClick={() => verifyConnected(contact)}></i>
     }
 
-
-
     return (
         <tr className='fw-normal'>
-            <th>
+            <td>
                 <span className='ms-2'>{contact.name}</span>
-            </th>
-            <th>
+            </td>
+            <td>
                 <span className='ms-2'>{contact.lastname}</span>
-            </th>
+            </td>
+            <td>
+                <span className='ms-2'>{contact.email}</span>
+            </td>
             <td className='align-middle'>
                 {isConnected()}
 

@@ -11,6 +11,7 @@ import Example4 from './components/hooks/Example4';
 import GreetingStyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
 import ListContacts from './components/Contacts/listContacts';
+import OpcionalRender from './components/pure/opcionalRender';
 
 function App() {
 
@@ -44,10 +45,12 @@ function App() {
       {/* <TaskListComponent>
       </TaskListComponent> */}
 
+      <OpcionalRender />
 
+      {/* 
       <ListContacts>
 
-      </ListContacts>
+      </ListContacts> */}
 
       {/* <Father /> */}
 

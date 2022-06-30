@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-import Contact from './contact';
+// import { useEffect } from 'react';
+import Contacts from './contact';
 import ContactForm from './contactForm';
-import Contacts from "./ContactList.json";
+import { Contact } from '../models/contact.class'
 
 const ListContacts = () => {
-    const [contacts, setContacts] = useState(Contacts);
+
+
+
+    const defaultContact1 = new Contact('Carlos', 'Gutierrez', 'carlos@gmail.com ', true)
+    const defaultContact2 = new Contact('María', 'Gómez', 'maria@gmail.com', true)
+    const defaultContact3 = new Contact('Esperanza', 'Álvarez', 'espe@gmail.com', true)
+
+
+    const [contacts, setContacts] = useState([defaultContact1, defaultContact2, defaultContact3]);
     // useEffect(() => {
     //     console.log('elemto montado')
     //     return () => {
@@ -30,6 +38,13 @@ const ListContacts = () => {
         setContacts(tempContact)
     }
 
+    const addContact = (contact) => {
+        console.log(`Add this contact:`, contact)
+        const tempContact = [...contacts]
+        tempContact.push(contact)
+        setContacts(tempContact)
+    }
+
     return (
         <div>
             <div className='col-12'>
@@ -43,6 +58,7 @@ const ListContacts = () => {
                                 <tr>
                                     <th scope='col'>Name</th>
                                     <th scope='col'>Lastname</th>
+                                    <th scope='col'>Email</th>
                                     <th scope='col'>Online</th>
                                     <th scope='col'>Delete</th>
                                 </tr>
@@ -51,7 +67,7 @@ const ListContacts = () => {
                                 {
                                     contacts.map((contact, index) => {
                                         return (
-                                            <Contact
+                                            <Contacts
                                                 key={index}
                                                 contact={contact}
                                                 verifyConnected={userConnected}

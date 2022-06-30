@@ -12,6 +12,7 @@ const TaskForm = ({ add }) => {
     const levelRef = useRef(LEVELS.NORMAL)
 
     const addTask = (e) => {
+        
         e.preventDefault()
         const newTask = new Task(
             nameRef.current.value,
