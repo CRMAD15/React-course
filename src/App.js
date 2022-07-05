@@ -12,6 +12,8 @@ import GreetingStyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
 import ListContacts from './components/Contacts/listContacts';
 import OpcionalRender from './components/pure/opcionalRender';
+import LoginFormik from './components/pure/forms/loginFormik';
+// import SquareColor from './components/squareColor/squareColor';
 
 function App() {
 
@@ -45,12 +47,13 @@ function App() {
       {/* <TaskListComponent>
       </TaskListComponent> */}
 
-      <OpcionalRender />
+      {/* Ejemplos de login con Formik */}
+      <LoginFormik></LoginFormik>
+
+      {/* <OpcionalRender /> */}
+
 
       {/* 
-      <ListContacts>
-
-      </ListContacts> */}
 
       {/* <Father /> */}
 

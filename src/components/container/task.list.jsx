@@ -23,7 +23,10 @@ const TaskListComponent = ({ items }) => {
 
     useEffect(() => {
         console.log('task state has been modifided')
-        setLoading(true)
+        setTimeout(() => {
+
+            setLoading(true)
+        }, 2000)
         return () => {
             console.log('taskList it is going to unmount')
 
@@ -60,13 +63,51 @@ const TaskListComponent = ({ items }) => {
 
     const addTask = (task) => {
         console.log(`Add this task:`, task)
-        const index = tasks.indexOf(task)
         const tempTask = [...tasks]
         tempTask.push(task)
         setTasks(tempTask)
     }
 
+    const Table = () => {
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Title</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Priority</th>
+                        <th scope='col'>Actions</th>
 
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        tasks.map((task, index) => {
+                            return (
+                                <TaskComponent
+                                    key={index}
+                                    task={task}
+                                    complete={completeTask}
+                                    remove={deleteTask}
+                                >
+                                </TaskComponent>
+                            )
+                        })
+                    }
+                </tbody>
+
+            </table>
+        )
+    }
+
+
+    let taskTable;
+
+    if (tasks.length > 0) {
+        taskTable = <Table />
+    } else {
+        taskTable = <h3> There is no task to show</h3>
+    }
     return (
         <div>
             <div className='col-12'>
@@ -75,33 +116,9 @@ const TaskListComponent = ({ items }) => {
                         <h5>Your tasks: </h5>
                     </div>
                     <div className='card-body' dat-mdb-perfect-scrollbar='true' style={{ positio: 'relative', height: '400px' }}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Title</th>
-                                    <th scope='col'>Description</th>
-                                    <th scope='col'>Priority</th>
-                                    <th scope='col'>Actions</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    tasks.map((task, index) => {
-                                        return (
-                                            <TaskComponent
-                                                key={index}
-                                                task={task}
-                                                complete={completeTask}
-                                                remove={deleteTask}
-                                            >
-                                            </TaskComponent>
-                                        )
-                                    })
-                                }
-                            </tbody>
-
-                        </table>
+                        {
+                            !loading ? <p1>Loading</p1> : taskTable
+                        }
 
                     </div>
 
@@ -109,6 +126,7 @@ const TaskListComponent = ({ items }) => {
             </div>
             <TaskForm
                 add={addTask}
+                length={tasks.length}
             >
 
             </TaskForm>

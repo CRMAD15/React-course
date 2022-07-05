@@ -6,3 +6,14 @@ h1 {
     font-weight: bold;
     color: cadetblue;
 }
+
+.task-pending {
+    color: tomato;
+    font-weight: bold;
+}
+
+.task-complete {
+    color: grey;
+    text-decoration: line-through;
+    text-shadow: 2px 2px 2px black;
+}

@@ -42,9 +42,21 @@ const TaskComponent = ({ task, complete, remove }) => {
             return <i onClick={() => complete(task)} className='bi-toggle-off' style={{ color: 'gray' }}></i>
         }
     }
+
+    const taskCompleted = {
+        color: 'gray',
+        fontWeight: 'bold'
+    }
+
+
+    const taskPending = {
+        color: 'tomato',
+        textDecoration: 'line-through',
+        
+    }
     return (
 
-        <tr className='fw-normal'>
+        <tr className='fw-normal' style={task.completed ? taskCompleted : taskPending} >
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>
@@ -64,7 +76,7 @@ const TaskComponent = ({ task, complete, remove }) => {
                 <i className='bi-trash' style={{ color: 'tomato', fontSize: 'large' }} onClick={() => remove(task)}></i>
 
             </td>
-        </tr>
+        </tr >
     );
 };
 

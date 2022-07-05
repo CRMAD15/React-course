@@ -5,14 +5,14 @@ import { LEVELS } from '../../models/levels.enum';
 import { Task } from '../../models/task.class';
 
 
-const TaskForm = ({ add }) => {
+const TaskForm = ({ add, length }) => {
 
     const nameRef = useRef('')
     const descriptionRef = useRef('')
     const levelRef = useRef(LEVELS.NORMAL)
 
     const addTask = (e) => {
-        
+
         e.preventDefault()
         const newTask = new Task(
             nameRef.current.value,
@@ -23,6 +23,20 @@ const TaskForm = ({ add }) => {
         add(newTask)
     }
 
+    const normalStyle = {
+        color: 'blue',
+        fontWeigth: 'blod'
+    }
+    const urgentStyle = {
+        color: 'yellow',
+        fontWeigth: 'blod',
+        textShadow: '2px 2px 2px black'
+    }
+    const blockingStyle = {
+        color: 'tomato',
+        fontWeigth: 'blod'
+    }
+
     return (
         <form onSubmit={addTask} className='d-flex justify-content-center align-center mb-4'>
 
@@ -31,18 +45,20 @@ const TaskForm = ({ add }) => {
                 <input ref={descriptionRef} id='inputDescription' type="text" className='form-control form-control-lg' required placeholder='Task description' />
                 <label htmlFor='selectLevel' className='sr-only'>Priority</label>
                 <select ref={levelRef} defaultValue={LEVELS.NORMAL} id="selectLevel">
-                    <option value={LEVELS.NORMAL}>
+                    <option style={normalStyle} value={LEVELS.NORMAL}>
                         Normal
                     </option>
-                    <option value={LEVELS.URGENT}>
+                    <option style={urgentStyle} value={LEVELS.URGENT}>
                         Urgent
-                    </option> <option value={LEVELS.BLOCKING}>
+                    </option>
+                    <option style={blockingStyle} value={LEVELS.BLOCKING}>
                         Blocking
                     </option>
                 </select>
             </div>
 
-            <button type='submit' className='btn btn-success btn-lg ms-2'> Add</button>
+            <button type='submit' className='btn btn-success btn-lg ms-2'>
+                {length > 0 ? 'Add' : 'Create youe new task'}</button>
 
         </form>
     );
