@@ -14,7 +14,6 @@ import ListContacts from './components/Contacts/listContacts';
 import OpcionalRender from './components/pure/opcionalRender';
 import LoginFormik from './components/pure/forms/loginFormik';
 import RegisterFormik from './components/pure/forms/registerFormik';
-import FormikTask from './components/pure/forms/formikTask';
 // import SquareColor from './components/squareColor/squareColor';
 
 function App() {
@@ -54,7 +53,7 @@ function App() {
 
 
       {/* <RegisterFormik /> */}
-      <FormikTask />
+
 
       {/* <OpcionalRender /> */}
 

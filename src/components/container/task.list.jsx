@@ -82,7 +82,7 @@ const TaskListComponent = ({ items }) => {
                 </thead>
                 <tbody>
                     {
-                        tasks.map((task, index) => {
+                        tasks?.map((task, index) => {
                             return (
                                 <TaskComponent
                                     key={index}
@@ -117,7 +117,7 @@ const TaskListComponent = ({ items }) => {
                     </div>
                     <div className='card-body' dat-mdb-perfect-scrollbar='true' style={{ positio: 'relative', height: '400px' }}>
                         {
-                            !loading ? <p1>Loading</p1> : taskTable
+                            !loading ? <p>Loading</p> : taskTable
                         }
 
                     </div>
