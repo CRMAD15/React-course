@@ -59,12 +59,7 @@ const LoginFormik = () => {
                                 {/* Email errors */}
                                 {
                                     errors.email && touched.email && (
-
-
                                         <ErrorMessage style={{ color: 'red' }} name='email' component='div'></ErrorMessage>
-
-
-
                                     )
                                 }
                                 {/* Email password */}
