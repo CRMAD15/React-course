@@ -25,13 +25,34 @@ const Clock = () => {
         )
     }
 
+    const firstColor = {
+        color: 'green'
+    }
+    const secondColor = {
+        color: 'tomato'
+    }
+    const [color, setColor] = useState(true);
+
+    const changeColor = () => {
+        if (color) {
+            setColor(false)
+        } else {
+            setColor(true)
+
+        }
+
+    }
     useEffect(() => {
-        setTimeout(changeEdad, 1000)
-    })
+        setTimeout(() => {
+            changeEdad()
+            changeColor()
+        }, 1000)
+    }, [clock])
 
     return (
 
         <div>
+            <h1 style={color ? firstColor : secondColor}>Change Color</h1>
             <h2>
                 Hora Actual:
                 {clock.fecha.toLocaleTimeString()}

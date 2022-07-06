@@ -26,6 +26,7 @@ const HomePage = () => {
             <button onClick={() => { navigate('/profile') }}>Go to profile</button>
             <button onClick={goBack}>Go Back</button>
             <button onClick={goForward}>Go Forward</button>
+
         </div>
     );
 }
