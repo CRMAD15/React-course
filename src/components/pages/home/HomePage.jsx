@@ -23,7 +23,7 @@ const HomePage = () => {
     return (
         <div>
             <h1>Home Page</h1>
-            <button onClick={() => { navigate('/profile') }}>Go to profile</button>
+            <button onClick={() => { navigate('/task') }}>Go to task</button>
             <button onClick={goBack}>Go Back</button>
             <button onClick={goForward}>Go Forward</button>
 

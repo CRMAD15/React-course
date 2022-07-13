@@ -14,6 +14,8 @@ import ListContacts from './components/Contacts/listContacts';
 import OpcionalRender from './components/pure/opcionalRender';
 import LoginFormik from './components/pure/forms/loginFormik';
 import RegisterFormik from './components/pure/forms/registerFormik';
+import AsyncExample from './components/pure/AsyncExample';
+import ObservableExamples from './components/pure/ObservableExamples';
 // import SquareColor from './components/squareColor/squareColor';
 
 function App() {
@@ -61,6 +63,15 @@ function App() {
       {/* 
 
       {/* <Father /> */}
+
+
+
+
+      {/* Ejemplos de asincronía */}
+
+      {/* <AsyncExample></AsyncExample> */}
+
+      <ObservableExamples></ObservableExamples>
 
     </div>
   );

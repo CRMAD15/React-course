@@ -1,8 +1,23 @@
 import { Routes, Route } from "react-router-dom";
+import TaskListComponent from "../components/container/task.list";
 import DashboardPage from "../components/pages/dashboard/DashBoard";
 // import ProfilePage from "../components/pages/profile/ProfilePage";
 // import TaskDetailPage from "../components/task/TaskDetailPage";
 // import TasksPage from "../components/task/TasksPage";
+
+// const ApplicationRouter = () => {
+
+
+//     return (
+//         <>
+//             <Routes>
+//                 <Route path="" element={<DashboardPage />} />
+//             </Routes>
+
+//         </>
+//     );
+// }
+
 
 const ApplicationRouter = () => {
 
@@ -10,7 +25,7 @@ const ApplicationRouter = () => {
     return (
         <>
             <Routes>
-                <Route path="" element={<DashboardPage />} />
+                <Route path="" element={<TaskListComponent />} />
             </Routes>
 
         </>
