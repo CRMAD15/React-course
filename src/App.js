@@ -18,6 +18,8 @@ import AsyncExample from './components/pure/AsyncExample';
 import ObservableExamples from './components/pure/ObservableExamples';
 import FetchExample from './components/pure/fetchExample';
 import AxiosExample from './components/pure/axiosExample';
+import SquareColor from './components/squareColor/squareColor';
+import AxiosCRUDExample from './components/pure/AxiosCRUDExample';
 // import SquareColor from './components/squareColor/squareColor';
 
 function App() {
@@ -67,7 +69,7 @@ function App() {
       {/* <Father /> */}
 
 
-
+      {/* <SquareColor></SquareColor> */}
 
       {/* Ejemplos de asincronía */}
 
@@ -75,8 +77,9 @@ function App() {
 
       {/* <ObservableExamples></ObservableExamples> */}
       {/* <FetchExample></FetchExample> */}
-      <AxiosExample></AxiosExample>
+      {/* <AxiosExample></AxiosExample> */}
 
+      <AxiosCRUDExample></AxiosCRUDExample>
     </div>
   );
 }
