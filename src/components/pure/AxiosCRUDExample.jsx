@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllPageUsers, getAllUsers, login } from '../../services/axiosCRUD.Service';
+import { createUser, deleteUserById, getAllPageUsers, getAllUsers, getUserById, login, updateUser } from '../../services/axiosCRUD.Service';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 
@@ -31,7 +31,6 @@ const AxiosCRUDExample = () => {
                     alert(JSON.stringify(response.data.token))
                     sessionStorage.setItem('token', response.data.token)
 
-
                 } else {
                     throw new Error('Login failure')
 
@@ -45,13 +44,18 @@ const AxiosCRUDExample = () => {
             .finally(() => console.log('Finished on one way or the other way'))
     }
 
+
     //CRUD examples
     const obtainAllUsers = () => {
 
         getAllUsers()
             .then(response => {
-                alert(JSON.stringify(response.data.data))
-                console.log(response)
+                console.log(response.status)
+                if (response.status === 200) {
+                    alert(JSON.stringify(response.data.data))
+                } else {
+                    throw new Error('Users not found')
+                }
             })
             .catch(error => {
                 alert(`Somethingwent wrong ${error}`)
@@ -63,10 +67,84 @@ const AxiosCRUDExample = () => {
 
         getAllPageUsers(page)
             .then(response => {
-                alert(JSON.stringify(response.data.data))
+                console.log(response.status)
+                if (response.status === 200) {
+
+                    alert(JSON.stringify(response.data.data))
+                } else {
+                    throw new Error('Users not found')
+                }
             })
             .catch(error => {
                 alert(`Somethingwent wrong ${error}`)
+            })
+    }
+
+
+    const obtainUserById = (id) => {
+
+        getUserById(id)
+            .then(response => {
+                console.log(response.status)
+                if (response.status === 200) {
+
+                    alert(JSON.stringify(response.data.data))
+                } else {
+                    throw new Error('User not found')
+                }
+            })
+            .catch(error => {
+                alert(`Somethingwent wrong ${error}`)
+            })
+    }
+
+    const createNewUser = (name, job) => {
+        createUser(name, job)
+            .then(response => {
+                console.log(response.status)
+                if (response.status === 201) {
+
+                    alert(JSON.stringify(response.data))
+                } else {
+                    throw new Error('User not created')
+                }
+            })
+            .catch(error => {
+                alert(`Somethingwent wrong ${error}`)
+            })
+    }
+
+    const updateUserById = (id, name, job) => {
+
+        updateUser(id, name, job)
+            .then(response => {
+                console.log(response.status)
+                if (response.status === 200) {
+
+                    alert(JSON.stringify(response.data))
+                } else {
+                    throw new Error('User not found, and not updated')
+                }
+            })
+            .catch(error => {
+                alert(`Somethingwent wrong ${error}`)
+            })
+    }
+
+    const deleteUser = (id) => {
+
+        deleteUserById(id)
+            .then(response => {
+                console.log(response)
+                if (response.status === 204) {
+
+                    alert(`User with Id: ${id}, deleted successfuly`)
+                } else {
+                    throw new Error('User not found, and not deleted')
+                }
+            })
+            .catch(error => {
+                alert(`Something went wrong ${error}`)
             })
     }
 
@@ -148,6 +226,16 @@ const AxiosCRUDExample = () => {
                 <button onClick={obtainAllUsers}>Get user by page</button>
 
                 <button onClick={() => obtainAllUsersPage(1)}>Get user by page</button>
+
+                <button onClick={() => obtainUserById(1)}>Get one user</button>
+
+                <button onClick={() => createNewUser('morpheus', 'leader')}>Create new user</button>
+
+
+                <button onClick={() => updateUserById(1, 'morpheus', 'developer')}>Update user</button>
+
+
+                <button onClick={() => deleteUser(1)}>Delete user</button>
 
             </div>
 

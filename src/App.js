@@ -69,7 +69,7 @@ function App() {
       {/* <Father /> */}
 
 
-      {/* <SquareColor></SquareColor> */}
+      <SquareColor></SquareColor>
 
       {/* Ejemplos de asincronía */}
 
